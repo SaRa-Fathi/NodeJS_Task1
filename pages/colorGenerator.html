@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            display: grid;
+            place-items: center;
+            margin-top: 10px;
+            color: blue;
+            font-size: x-large;
+            font-weight: bold;
+        }
+        .container{
+            margin-top: 100px;
+            width: 250px;
+            height: 400px;
+            background: rgb(74, 72, 72);
+            border-radius: 20px;
+            display: grid;
+            place-items:center;
+            color: white;
+        }
+        #output{
+            border-radius: 30px;
+            width: 80%;
+            text-align: center;
+            background: whitesmoke;
+        }
+        input[type="range"]{
+            -webkit-appearance: none !important;
+            height: 10px;
+            width: 80%;
+            border-radius: 50%;
+            outline:none ;
+            cursor: pointer;
+        }
+        #red {
+            background: linear-gradient(90deg, #000, red);
+        }
+        
+        #green {
+            background: linear-gradient(90deg, #000, green);
+        }
+        
+        #blue {
+            background: linear-gradient(90deg, #000, blue);
+        }
+
+    </style>
+</head>
+<body>
+    RGB Changes
+    <a href="../index.html">Go to Home Page</a>
+    <div class="container">
+        Output Range
+        <input type="text" id="output" value="rgb(255,255,255)">
+        Red
+        <input type="range" id="red" value="255" min="0" max="255">
+        Green
+        <input type="range" id="green" value="255" min="0" max="255">
+        Blue
+        <input type="range" id="blue" value="255" min="0" max="255">
+        
+    </div>
+    <script>
+        var red=document.getElementById("red");
+        var green=document.getElementById("green");
+        var blue=document.getElementById("blue");
+
+        red.addEventListener("input",myColor);
+        green.addEventListener("input",myColor);
+        blue.addEventListener("input",myColor);
+
+        function myColor(){
+            var R=red.value;
+            var G=green.value;
+            var B=blue.value;
+
+            var color= 'rgb(' + R + ',' + G + ',' + B + ')';
+
+            document.body.style.background=color;
+            document.getElementById("output").value=color;
+        }
+
+    </script>
+
+</body>
+</html>
